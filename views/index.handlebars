@@ -1,0 +1,81 @@
+<div class="jumbotron">
+  <div class="row" id="title">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <h1>Make a Burger</h1>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+  <div class="row" id="title">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <h3>Enter your burger craving, then devour it when ready...</h3>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>
+<div>
+  <div class="row" id="title">
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-7">
+      <form class="create-form">
+        <div class="form-group">
+          <label for="ca"></label>
+          <input type="text" id="ca" name="name">
+        </div>
+        <button type="submit" class="btn btn-primary">Add a Burger</button>
+      </form>
+    </div>
+  </div>
+  <div>
+    <div class="row" id="title">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4">
+        <h2 class="appcenter">Not Devoured</h2>
+        <ol>
+          {{#each burgers}}
+          {{#unless devoured}}
+          <div>
+            <li>
+              <h1>{{burger_name}}</h1>
+              <form class="devour-form" data="{{id}}">
+                <input type="hidden" name="devour" value="true">
+                <button type="submit" class="btn btn-success">Devour!</button>
+              </form>
+            </li>
+          </div>
+          {{/unless}}
+          {{/each}}
+        </ol>
+
+      </div>
+      <div class="col-md-4">
+        <h2 class="appcenter">Devoured</h2>
+        <ol>
+          {{#each burgers}}
+          {{#if devoured}}
+          <div>
+            <li>
+              <h1>{{burger_name}}</h1>
+              <form class="delete-form" data="{{id}}">
+                <input type="hidden" name="devour" value="true">
+                <button type="submit" class="btn btn-info">
+                  <delete class="fa fa-trash"></delete>
+                </button>
+              </form>
+            </li>
+          </div>
+          {{/if}}
+          {{/each}}
+        </ol>
+      </div>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
